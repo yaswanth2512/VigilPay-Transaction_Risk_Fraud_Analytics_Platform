@@ -1,0 +1,7 @@
+vigilpay_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "../paysim_ingestion.duckdb"
+      schema: main

@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    columns:
+      - name: transaction_id
+        tests:
+          - not_null
+          - unique
+      - name: transaction_type
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PAYMENT', 'TRANSFER', 'CASH_OUT', 'CASH_IN', 'DEBIT']
+      - name: amount
+        tests:
+          - not_null
+
+  - name: mart_transaction_summary
+    columns:
+      - name: transaction_id
+        tests:
+          - not_null
+          - unique
+      - name: is_fraud
+        tests:
+          - not_null
